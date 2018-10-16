@@ -6,24 +6,40 @@ canvas {
     margin: 0 auto;
     opacity: 0.8;
 }
-body{
+
+body {
     height: 100vh;
     background-image: url(../MEDIAS/bg.jpg);
     background-repeat: round;
     background-size: 100%;
     text-align: center;
+    justify-content: center;
+    align-items: center;
 }
-.PaddingT{
+
+.BG{
+    background-image: url('../MEDIAS/GameOver.jpg');
+}
+.PaddingT {
     padding-top: 300px;
 }
-.btn{
+.DNone{
+    display: none;
+}
+.PositionAbsolute{
+    position: absolute;
+    left : 460px;
+    bottom: 290px;
+}
+
+.btn {
     background-color: #ffffff00;
     color: #fff;
     font-size: 20px;
     border-radius: 50px;
     text-align: center;
     font-family: 'raleway';
-    padding: 10px 10px 10px 10px;  
+    padding: 10px 10px 10px 10px;
     border: #fff solid 1px;
     transition-duration: 0.4s;
     cursor: pointer;
@@ -42,14 +58,14 @@ body{
     width: 140px;
     margin: 30px;
     padding: 10px 10px 10px 10px;
-    
+
 }
 
 .ffraleway {
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
     color: whitesmoke;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     font-size: 20px;
     letter-spacing: 5px;
 }
@@ -57,7 +73,7 @@ body{
 .bold {
     font-family: 'Raleway', sans-serif;
     font-weight: 900;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     font-size: 50px;
 
 }

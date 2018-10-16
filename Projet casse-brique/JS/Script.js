@@ -1,5 +1,6 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
+var GameO = document.getElementById('GameOver');
 var ballRadius = 10;
 var x = canvas.width / 2;
 var y = canvas.height - 30;
@@ -112,8 +113,8 @@ function draw() {
     if (x > paddleX && x < paddleX + paddleWidth) {
       dy = -dy;
     } else {
-      alert("GAME OVER");
-      document.location.reload();
+      GameO.style.display = 'flex';
+      
     }
   }
 
