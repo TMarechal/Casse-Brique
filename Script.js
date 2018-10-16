@@ -18,6 +18,7 @@ var brickPadding = 5;
 var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
 var couleurBrick = ["#1166A1", "#00A0D2", "#3BBFE2"];
+var score = 0;
 
 
 var bricks = [];
@@ -58,10 +59,17 @@ function collisionDetection() {
         if (x > b.x && x < b.x + brickWidth + ballRadius && y > b.y && y < b.y + brickHeight + ballRadius) {
           dy = -dy;
           b.status = 0;
+          score++;
         }
       }
     }
   }
+}
+
+function drawScore() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Score: "+score, 8, 20); // score et coordonnée du score
 }
 
 function drawBall() {
