@@ -11,13 +11,15 @@ var paddleWidth = 75;
 var paddleX = (canvas.width - paddleWidth) / 2;
 var rightPressed = false;
 var leftPressed = false;
-var brickRowCount = 7;
+var brickRowCount = 8;
 var brickColumnCount = 3;
 var brickWidth = 75;
 var brickHeight = 20;
 var brickPadding = 5;
 var brickOffsetTop = 30;
-var brickOffsetLeft = 30;
+var brickOffsetLeft = 25;
+var couleurBrick = ["#1166A1", "#00A0D2", "#3BBFE2"];
+var score = 0;
 
 var bricks = [];
 for (var c = 0; c < brickColumnCount; c++) {
@@ -57,10 +59,17 @@ function collisionDetection() {
         if (x > b.x && x < b.x + brickWidth + ballRadius && y > b.y && y < b.y + brickHeight + ballRadius) {
           dy = -dy;
           b.status = 0;
+          score++;
         }
       }
     }
   }
+}
+
+function drawScore() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Score: "+score, 8, 20); // score et coordonnée du score
 }
 
 function drawBall() {
@@ -89,7 +98,7 @@ function drawBricks() {
         bricks[c][r].y = brickY;
         ctx.beginPath();
         ctx.rect(brickX, brickY, brickWidth, brickHeight);
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = couleurBrick[c];
         ctx.fill();
         ctx.closePath();
       }
@@ -102,6 +111,7 @@ function draw() {
   drawBricks();
   drawBall();
   drawPaddle();
+  drawScore();
   collisionDetection();
 
   if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
@@ -114,7 +124,6 @@ function draw() {
       dy = -dy;
     } else {
       GameO.style.display = 'flex';
-      
     }
   }
 
